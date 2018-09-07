@@ -22,6 +22,11 @@ class Settings {
         if ( ( process.env.APP_DEBUG ).toLowerCase() == 'true' ) {
             this._debug = true;
         }
+
+        this._sensorURL = '';
+        if ( process.env.Sensor_URL ) {
+            this._sensorURL = process.env.Sensor_URL;
+        }
     }
 
     normalizePort(val) {
@@ -43,6 +48,10 @@ class Settings {
 
     get port() {
         return this._port;
+    }
+
+    get sensorURL() {
+        return this._sensorURL;
     }
 
     // get dbConfig() {
